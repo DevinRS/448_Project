@@ -1,4 +1,0 @@
-The Supplementary Specifications captures the system requirements that are not readily captured in the use cases of the use-case model. Such as: 
-- Legal and regulatory requirements, including application standards. 
-- Quality attributes of the system to be built, including usability, reliability, performance, and supportability requirements. 
-- Other requirements such as operating systems and environments, compatibility requirements, and design constraints.

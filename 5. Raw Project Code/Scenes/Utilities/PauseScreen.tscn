@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/Utilities/LoseScreen/exitgameButtonHover.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Utilities/LoseScreen/resumeButton.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Utilities/LoseScreen/resumeButtonHover.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Utilities/LoseScreen/exitgameButton.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Utilities/PauseScreen.gd" type="Script" id=5]
+
+[node name="PauseScreen" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="resume" type="TextureButton" parent="."]
+margin_left = 433.0
+margin_top = 206.0
+margin_right = 851.0
+margin_bottom = 306.0
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+
+[node name="exitgame" type="TextureButton" parent="."]
+margin_left = 432.0
+margin_top = 355.0
+margin_right = 850.0
+margin_bottom = 455.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 1 )
+
+[connection signal="pressed" from="resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="exitgame" to="." method="_on_exitgame_pressed"]

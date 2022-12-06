@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Game/GameVersus.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Utilities/Board.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/GameVersus/bg.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Utilities/Fail.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Utilities/Health.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/GameVersus/shuffle.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/GameVersus/ready_off.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/GameVersus/ready_on.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Utilities/LoseScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Utilities/PauseScreen.tscn" type="PackedScene" id=10]
+
+[node name="GameVersus" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 642.0 ]
+}
+
+[node name="bg" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+
+[node name="BoardP1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 155, 180 )
+
+[node name="BoardP2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 760, 180 )
+
+[node name="Fail" parent="." instance=ExtResource( 4 )]
+
+[node name="HealthP1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 254, 20 )
+
+[node name="HealthP2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 857, 20 )
+
+[node name="ShuffleP1" type="TextureButton" parent="."]
+margin_left = 19.0
+margin_top = 642.0
+margin_right = 72.0
+margin_bottom = 695.0
+texture_normal = ExtResource( 6 )
+
+[node name="ShuffleP2" type="TextureButton" parent="."]
+margin_left = 1197.0
+margin_top = 642.0
+margin_right = 1250.0
+margin_bottom = 695.0
+texture_normal = ExtResource( 6 )
+flip_h = true
+
+[node name="ReadyP1" type="TextureButton" parent="."]
+margin_left = 557.0
+margin_top = 642.0
+margin_right = 619.0
+margin_bottom = 695.0
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+
+[node name="ReadyP2" type="TextureButton" parent="."]
+margin_left = 662.0
+margin_top = 642.0
+margin_right = 724.0
+margin_bottom = 695.0
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+
+[node name="LoseScreen" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="PauseScreen" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[connection signal="pressed" from="ShuffleP1" to="." method="_on_ShuffleP1_pressed"]
+[connection signal="pressed" from="ShuffleP2" to="." method="_on_ShuffleP2_pressed"]
+[connection signal="pressed" from="ReadyP1" to="." method="_on_ReadyP1_pressed"]
+[connection signal="pressed" from="ReadyP2" to="." method="_on_ReadyP2_pressed"]
